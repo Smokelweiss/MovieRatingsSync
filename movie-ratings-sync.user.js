@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Movie Ratings Sync
+// @name:ru      Синхронизация Кинооценок
 // @namespace    movie-ratings-sync
 // @version      1.0
 // @description  Sync movie ratings across Kinopoisk, IMDb, Letterboxd and more
+// @description:ru Синхронизируйте оценки фильмов между Kinopoisk, IMDb, Letterboxd и другими сервисами
 // @author       Smokelweiss
 // @match        https://www.kinopoisk.ru/*
 // @match        https://www.imdb.com/*
