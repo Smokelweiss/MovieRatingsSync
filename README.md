@@ -1,4 +1,4 @@
-# Movie Rating Sync
+# Movie Rating Sync (Синхронизация Кинооценок)
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="GPL-3.0 License">
@@ -6,110 +6,103 @@
   <img src="https://img.shields.io/badge/Status-Active-success" alt="Status Active">
 </p>
 
----
+<p align="center">
+  Userscript for transferring, synchronizing, and backing up movie ratings between
+  <a href="https://www.kinopoisk.ru/">Kinopoisk</a>,
+  <a href="https://www.imdb.com/">IMDb</a>
+  and
+  <a href="https://letterboxd.com/">Letterboxd</a>.
+</p>
 
-🌐 **Language / Выберите язык:**
-* [🇺🇸 English (Default)](#-movie-rating-sync-english)
-* [🇷🇺 Русский](#-movie-rating-sync-русский)
-
----
-
-## 🇺🇸 Movie Rating Sync (English)
-
-A cross-platform userscript to sync, backup, and migrate your movie ratings between **Kinopoisk**, **IMDb**, and **Letterboxd**.
-
-### ✨ Features
-
-* **🔄 Full Cross-Platform Support** — Import and export functionalities are available across all supported websites.
-* **📦 Universal Format** — Download your ratings from any service into a structured CSV file.
-* **🧠 Smart Title Matching** — Utilizes transliteration, fuzzy search, and release year tolerance to help map titles across different services.
-* **⚡ Dual Sync Modes:**
-  * *Normal Mode* — Skips already rated/watched titles to save time.
-  * *Replace Mode* — Overwrites existing ratings with the latest data from your file.
-* **🛡️ Adaptive Throttling** — Automatically adjusts request speed based on server responses to avoid rate limits (429 errors).
-* **🔍 Deep Search** — An optional HTTP search fallback for titles not found in the local cache. 
-
-> ⚠️ **Note on Matching:** Title translation and matching across networks is complex. The deep search is not perfect — some rare, indie, or localized titles may require manual adjustment during the sync process.
-
-### 📊 Supported Services
-
-| Service | Export | Import |
-| :--- | :---: | :---: |
-| **Kinopoisk** | ✅ | ✅ |
-| **IMDb** | ✅ | ✅ |
-| **Letterboxd** | ✅ | ✅ |
-
-### 🚀 Installation
-
-1. Install a userscript manager of your choice:
-   * [Tampermonkey](https://www.tampermonkey.net/) *(Recommended)*
-   * [Violentmonkey](https://violentmonkey.github.io/)
-2. Open the [`movie-ratings-sync.user.js`](movie-ratings-sync.user.js) file in this repository.
-3. Click the **"Raw"** button — your userscript manager will automatically prompt you to install the script.
-
-### 📖 How To Use
-
-#### Step 1. Export Ratings to CSV
-1. Log into your profile on the **source** website (e.g., Kinopoisk).
-2. Click the **📥 Export ratings to CSV** button and save the file.
-
-#### Step 2. Import CSV to Target Platform
-1. Log into the **destination** website (e.g., IMDb).
-2. Click **📥 Import** (or **🔄 Hard Replace** if you want to overwrite existing ratings).
-3. Select your downloaded CSV file and monitor the synchronization process.
+<p align="center">
+  🇷🇺 <a href="./README.ru.md">Russian version</a>
+</p>
 
 ---
 
-## 🇷🇺 Movie Rating Sync (Русский)
+## Features
 
-Кроссплатформенный пользовательский скрипт для синхронизации, резервного копирования и переноса оценок фильмов между **Кинопоиском**, **IMDb** и **Letterboxd**.
-
-### ✨ Возможности
-
-* **🔄 Полная кроссплатформенность** — Импорт и экспорт данных работает на всех поддерживаемых сайтах.
-* **📦 Универсальный формат** — Выгрузка ваших оценок с любого сервиса в единый формат CSV.
-* **🧠 Умный поиск** — Алгоритм сопоставления использует транслитерацию, нечёткое сравнение названий и допуск по году для поиска фильмов на разных сервисах.
-* **⚡ Два режима работы:**
-  * *Обычный* — Пропускает уже оценённые или просмотренные фильмы, экономя время.
-  * *Жёсткий* — Перезаписывает существующие оценки актуальными данными из вашего файла.
-* **🛡️ Адаптивная задержка** — Скрипт автоматически подстраивает скорость работы под лимиты серверов, защищая от блокировок (ошибок 429).
-* **🔍 Глубокий поиск** — Резервный HTTP-поиск для фильмов, которые не удалось найти в локальном кэше.
-
-> ⚠️ **Предупреждение о поиске:** Алгоритм глубокого поиска не идеален. Из-за разницы в базах данных некоторых сервисов, редкие или локализованные фильмы могут не найтись автоматически и потребовать ручной проверки.
-
-### 📊 Поддерживаемые сервисы
-
-| Сервис | Экспорт | Импорт |
-| :--- | :---: | :---: |
-| **Кинопоиск** | ✅ | ✅ |
-| **IMDb** | ✅ | ✅ |
-| **Letterboxd** | ✅ | ✅ |
-
-### 🚀 Установка
-
-1. Установите менеджер пользовательских скриптов:
-   * [Tampermonkey](https://www.tampermonkey.net/) *(Рекомендуется)*
-   * [Violentmonkey](https://violentmonkey.github.io/)
-2. Откройте файл [`movie-ratings-sync.user.js`](movie-ratings-sync.user.js) в этом репозитории.
-3. Нажмите кнопку **«Raw»** — менеджер скриптов автоматически предложит установку.
-
-### 📖 Инструкция
-
-#### Шаг 1. Экспорт оценок в CSV
-1. Перейдите в свой профиль на **исходном** сервисе (например, на Кинопоиск).
-2. Нажмите появившуюся кнопку **📥 Экспорт оценок в CSV** и сохраните файл.
-
-#### Шаг 2. Импорт оценок из CSV
-1. Перейдите на **целевой** сервис (например, IMDb), предварительно войдя в свой аккаунт.
-2. Нажмите кнопку **📥 Импортировать** (или **🔄 Жёсткий импорт**, если нужно перезаписать старые оценки).
-3. Выберите скачанный ранее CSV-файл и дождитесь окончания процесса.
+* 🔄 Import and export ratings across services
+* 📦 Universal CSV format for backups
+* 🧠 Smart movie matching (transliteration, fuzzy matching, year)
+* ⚡ Two import modes — normal and hard (with overwrite)
+* 🛡️ Adaptive throttling to prevent rate limits
+* 🔍 Deep HTTP fallback search for missing movies
 
 ---
 
-### 📄 License
+## Supported Services
 
-Distributed under the [GPL-3.0](LICENSE) License.
+| Service     | Export | Import |
+| :---------- | :---: | :----: |
+| Kinopoisk   |   ✅   |   ✅   |
+| IMDb        |   ✅   |   ✅   |
+| Letterboxd  |   ✅   |   ✅   |
 
-### 🤝 Support & Contribution
+---
 
-Found a bug or have a feature request? Feel free to open an [issue](https://github.com/Smokelweiss/MovieRatingsSync/issues). Pull requests are welcome!
+## Installation
+
+### 1. Install a userscript manager
+
+* [Tampermonkey](https://www.tampermonkey.net/) (recommended)
+* [Violentmonkey](https://violentmonkey.github.io/)
+
+### 2. Install the script
+
+Open the file: [`movie-rating-sync.user.js`](./movie-rating-sync.user.js)
+
+Click the **Raw** button, and your userscript manager will automatically prompt installation.
+
+---
+
+## Usage
+
+### Export
+
+1. Open your profile on the source service  
+2. Click `📥 Export ratings`  
+3. Save the CSV file  
+
+### Import
+
+1. Open the target service  
+2. Click `📥 Import` or `🔄 Hard Import`  
+3. Select the CSV file  
+4. Wait for synchronization to complete  
+
+---
+
+## Use Cases
+
+* Transfer ratings between Kinopoisk, IMDb, and Letterboxd
+* Export movie ratings to CSV
+* Backup movie ratings
+* Migrate between movie platforms
+* Synchronize ratings across platforms
+
+---
+
+## Hard Import Notes
+
+Automatic movie matching is not always perfect.
+
+It uses:
+* transliteration
+* fuzzy matching
+* year tolerance
+* HTTP fallback search
+
+Rare or localized movies may require manual verification. The script can sometimes mismatch them.
+
+---
+
+## License
+
+GPL-3.0 License
+
+---
+
+## Contribution
+
+Issues and pull requests are welcome.
