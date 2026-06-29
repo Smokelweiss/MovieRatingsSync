@@ -743,7 +743,8 @@
         const elapsed = Math.round((Date.now() - t0) / 1000);
         const lbl = mode === 'replace' ? ' (режим замены)' : '';
         if (result.missed.length) downloadCSV(buildCSV(result.missed), 'kp_missed.csv');
-        statusEl.innerHTML = `✅ <b>Готово${lbl} (${elapsed} сек)!</b><br>Оценено: <b>${result.rated}</b><br>Отмечено: <b>${result.watched}</b><br>Пропущено: <b>${result.skipped}</b><br>Не найдено: <b>${result.notFound}</b><br>Ошибок: <b>${result.failed}</b>${result.notFound === 0 && result.failed === 0 ? '<br><br>🎉 Все записи импортированы!' : ''}`;
+        statusEl.textContent = '';
+        statusEl.insertAdjacentHTML('beforeend', `✅ <b>Готово${lbl} (${elapsed} сек)!</b><br>Оценено: <b>${result.rated}</b><br>Отмечено: <b>${result.watched}</b><br>Пропущено: <b>${result.skipped}</b><br>Не найдено: <b>${result.notFound}</b><br>Ошибок: <b>${result.failed}</b>${result.notFound === 0 && result.failed === 0 ? '<br><br>🎉 Все записи импортированы!' : ''}`);
     }
 
     // ====================== IMDb MODULE ======================
@@ -951,20 +952,27 @@
 
     function renderIMDbResult(result, statusEl, rated, watched, mode) {
         const lbl = mode === 'replace' ? ' (режим замены)' : '';
-        let html = `✅ <b>Готово${lbl}!</b><br>Оценено: <b>${result.rated}</b><br>Просмотрено: <b>${result.watched}</b><br>Пропущено: <b>${result.skipped}</b><br>Не найдено: <b>${result.notFound}</b><br>Ошибок: <b>${result.failed}</b>`;
-        if (!result.notFound && !result.failed) html += '<br><br>🎉 Все записи импортированы!';
+        statusEl.textContent = '';
+        statusEl.insertAdjacentHTML('beforeend', `✅ <b>Готово${lbl}!</b><br>Оценено: <b>${result.rated}</b><br>Просмотрено: <b>${result.watched}</b><br>Пропущено: <b>${result.skipped}</b><br>Не найдено: <b>${result.notFound}</b><br>Ошибок: <b>${result.failed}</b>`);
+        if (!result.notFound && !result.failed) {
+            statusEl.insertAdjacentHTML('beforeend', '<br><br>🎉 Все записи импортированы!');
+        }
         if (result.missed.length) {
             downloadCSV(buildCSV(result.missed), 'imdb_missed.csv');
-            html += `<br><br><button id="mrs-retry" class="mrs-btn mrs-btn--yellow" style="padding:8px 14px;font-size:13px">🔍 Искать глубже (${result.missed.length})</button>`;
-        }
-        statusEl.innerHTML = html;
-        setTimeout(() => {
-            document.getElementById('mrs-retry')?.addEventListener('click', async () => {
+            const btn = Object.assign(document.createElement('button'), {
+                id: 'mrs-retry',
+                className: 'mrs-btn mrs-btn--yellow',
+                textContent: `🔍 Искать глубже (${result.missed.length})`,
+            });
+            btn.addEventListener('click', async () => {
                 setStatus(statusEl, `Глубокий поиск${dots()}`);
                 const r2 = await imdbProcess(result.missed, rated, watched, statusEl, true, mode);
                 renderIMDbResult(r2, statusEl, rated, watched, mode);
             });
-        }, 50);
+            statusEl.insertAdjacentElement('beforeend', document.createElement('br'));
+            statusEl.insertAdjacentElement('beforeend', document.createElement('br'));
+            statusEl.insertAdjacentElement('beforeend', btn);
+        }
     }
 
     async function performIMDbExport(statusEl) {
@@ -1492,7 +1500,8 @@
 
         if (missed.length) downloadCSV(buildCSV(missed), 'lb_missed.csv');
         console.log(`[mrs] LB APPLY DONE: rated=${rated} watched=${watched} failed=${failed} toApply=${toApply.length}`);
-        statusEl.innerHTML = `✅ <b>Готово!</b><br>Оценено: <b>${rated}</b><br>Просмотрено: <b>${watched}</b><br>Не найдено: <b>${notFound}</b><br>Ошибок: <b>${failed}</b>${!notFound && !failed ? '<br><br>🎉 Все записи импортированы!' : ''}`;
+        statusEl.textContent = '';
+        statusEl.insertAdjacentHTML('beforeend', `✅ <b>Готово!</b><br>Оценено: <b>${rated}</b><br>Просмотрено: <b>${watched}</b><br>Не найдено: <b>${notFound}</b><br>Ошибок: <b>${failed}</b>${!notFound && !failed ? '<br><br>🎉 Все записи импортированы!' : ''}`);
     }
 
     // ====================== MODULE REGISTRY ======================
