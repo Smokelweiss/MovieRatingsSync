@@ -6,7 +6,7 @@
   "description": "Sync movie ratings across Kinopoisk, IMDb, Letterboxd and more",
   "description:ru": "Синхронизируйте оценки фильмов между Kinopoisk, IMDb и другими сервисами",
   "author": "Smokelweiss",
-  "homepage_url": "https://github.com/Smokelweiss/MovieRatingsSync",
+  "homepage_url": "https://github.com/Smokelweiss/MovieRatingSync",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
