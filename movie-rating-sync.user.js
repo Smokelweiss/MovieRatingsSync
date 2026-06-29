@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Movie Rating Sync
 // @name:ru      Синхронизация Кинооценок
-// @namespace    movie-ratings-sync
+// @namespace    https://github.com/Smokelweiss
 // @version      1.0
 // @description  Sync movie ratings across Kinopoisk, IMDb, Letterboxd and more
 // @description:ru Синхронизируйте оценки фильмов между Kinopoisk, IMDb и другими сервисами
@@ -12,10 +12,10 @@
 // @match        https://letterboxd.com/*
 // @run-at       document-end
 // @grant        GM_addStyle
-// @homepageURL  https://github.com/Smokelweiss/MovieRatingsSync
-// @supportURL   https://github.com/Smokelweiss/MovieRatingsSync/issues
-// @updateURL    https://raw.githubusercontent.com/Smokelweiss/MovieRatingsSync/main/movie-ratings-sync.user.js
-// @downloadURL  https://raw.githubusercontent.com/Smokelweiss/MovieRatingsSync/main/movie-ratings-sync.user.js
+// @homepageURL  https://github.com/Smokelweiss/MovieRatingSync
+// @supportURL   https://github.com/Smokelweiss/MovieRatingSync/issues
+// @updateURL    https://raw.githubusercontent.com/Smokelweiss/MovieRatingSync/main/movie-rating-sync.user.js
+// @downloadURL  https://raw.githubusercontent.com/Smokelweiss/MovieRatingSync/main/movie-rating-sync.user.js
 // @license      GPL-3.0
 // ==/UserScript==
 
